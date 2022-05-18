@@ -113,12 +113,16 @@ class MovieView(Resource):
         db.session.commit()
         db.session.close()
 
+        return "", 204
+
     def delete(self, mid):
         movie = Movie.query.get(mid)
 
         db.session.delete(movie)
         db.session.commit()
         db.session.close()
+
+        return "", 204
 
 
 if __name__ == '__main__':
